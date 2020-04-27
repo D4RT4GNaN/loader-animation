@@ -1,25 +1,38 @@
-<?xml-stylesheet type="text/css" href="loader-animation.css" ?>
-<svg class="shadow" enable-background="new 0 0 800 800" height="800px" id="GUIDE" version="1.1" viewBox="0 0 800 800" width="800px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet href="logo-animation.css" type="text/css"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg class="shadow" enable-background="new 0 0 800 800" height="800px" id="GUIDE" version="1.1" viewBox="0 0 800 800" width="800px"
+  xml:space="preserve"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:cc="http://creativecommons.org/ns#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+  xmlns:svg="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <filter id="innershadow" x0="-50%" y0="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"></feGaussianBlur>
-      <feOffset dy="2" dx="3"></feOffset>
-      <feComposite in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
-
-      <!--<feFlood flood-color="#A60808" flood-opacity="0.75"></feFlood>-->
-      <feFlood flood-color="black" flood-opacity="0.75"></feFlood>
-      <feComposite in2="shadowDiff" operator="in"></feComposite>
-      <feComposite in2="SourceGraphic" operator="over" result="firstfilter"></feComposite>
-
-      <!--<feGaussianBlur in="firstfilter" stdDeviation="3" result="blur2"></feGaussianBlur>
-      <feOffset dy="-2" dx="-3"></feOffset>
-      <feComposite in2="firstfilter" operator="arithmetic" k2="-1" k3="1" result="shadowDiff"></feComposite>
-
-      <feFlood flood-color="#A60808" flood-opacity="0.75"></feFlood>
-      <feComposite in2="shadowDiff" operator="in"></feComposite>
-      <feComposite in2="firstfilter" operator="over"></feComposite>-->
+    <filter id="inset-shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feComponentTransfer in="SourceAlpha">
+        <feFuncA type="table" tableValues="1 0" />
+      </feComponentTransfer>
+      <feGaussianBlur stdDeviation="3"/>
+      <feOffset dx="5" dy="5" result="offsetblur"/>
+      <feFlood flood-color="rgb(20, 0, 0)" result="color"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feComposite in2="SourceAlpha" operator="in" />
+      <feComponentTransfer id="test">
+        <feFuncA type="linear" slope="1">
+          <animate attributeType="XML" attributeName="slope" from="0" to="1" dur="5s"/>
+        </feFuncA>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode in="SourceGraphic" />
+        <feMergeNode />
+      </feMerge>
     </filter>
-</defs>
+  </defs>
 
   <g>
     <g>
@@ -48,5 +61,19 @@
     </g>
   </g>
 
-  <script xlink:href="loader-animation.js" />
+  <script type="text/javascript">
+    function getLength(pathId) {
+      var path = document.getElementById(pathId);
+      return path.getTotalLength();
+    }
+
+    document.documentElement.style.setProperty('--path1-length', getLength('path1'));
+    document.documentElement.style.setProperty('--path2-length', getLength('path2'));
+    document.documentElement.style.setProperty('--path3-length', getLength('path3'));
+    document.documentElement.style.setProperty('--path4-length', getLength('path4'));
+    document.documentElement.style.setProperty('--path5-length', getLength('path5'));
+    document.documentElement.style.setProperty('--path6-length', getLength('path6'));
+    document.documentElement.style.setProperty('--path7-length', getLength('path7'));
+    document.documentElement.style.setProperty('--path8-length', getLength('path8'));
+  </script>
 </svg>
