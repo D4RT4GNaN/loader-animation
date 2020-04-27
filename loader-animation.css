@@ -1,235 +1,89 @@
-:root {
-  --icon-color: #c8ad7f;
-  --icon-fill: #40331c;
+/*
+  ============================
+  ---------- Design ----------
+  ============================
+*/
+
+#loader-wrapper {
+  height: 100%;
+  position: fixed;
+  z-index: 101;
 }
 
-.shadow {
-  -webkit-filter: url("#innershadow");
-  filter: url("#innershadow");
-  /* Similar syntax to box-shadow */
-  animation: shadowAnimation 5s running linear;
+#loader-wrapper .loader-section {
+    position: fixed;
+    top: 0;
+    width: 51%;
+    height: 100%;
+    background: #40331c;
+    z-index: 1000;
 }
 
-@keyframes shadowAnimation {
-  0% {
-    -webkit-filter: none;
-    filter: none;
-  }
-
-  99% {
-    -webkit-filter: none;
-    filter: none;
-  }
-
-  100% {
-    -webkit-filter: url("#innershadow");
-    filter: url("#innershadow");
-  }
+#loader-wrapper .loader-section.section-left {
+    left: 0;
 }
 
-/* ===== Path ===== */
-.icon-path {
-  stroke: var(--icon-color);
-  fill: var(--icon-color);
-  stroke-width: 10;
+#loader-wrapper .loader-section.section-right {
+    right: 0;
 }
 
-/* ===== Path 1 ===== */
-#path1 {
-  stroke-dasharray: var(--path1-length);
-  animation: path1 5s running linear;
+#loader {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  z-index: 1001;
 }
 
-@keyframes path1 {
-  0% {
-    stroke-dashoffset: var(--path1-length);
-    fill: var(--icon-fill);
-  }
-
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
+#loader object {
+  left: 50%;
+  top: 50%;
+  width: 25%;
 }
 
-/* ===== Path 2 ===== */
-#path2 {
-  stroke-dasharray: var(--path2-length);
-  animation: path2 5s running linear;
+
+
+/*
+  ===============================
+  ---------- Animation ----------
+  ===============================
+*/
+
+/* ---------- We start by the fade-out the logo ---------- */
+.loaded #loader object {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s ease-out;
+          transition: opacity 0.3s ease-out;
 }
 
-@keyframes path2 {
-  0% {
-    stroke-dashoffset: var(--path2-length);
-    fill: var(--icon-fill);
-  }
+/* ---------- We continue with the translation of the L/R sections ---------- */
+.loaded #loader-wrapper .loader-section.section-left {
+  -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: translateX(-100%);  /* IE 9 */
+          transform: translateX(-100%);  /* Firefox 16+, IE 10+, Opera */
 
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
+  -webkit-transition: transform 0.7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          transition: transform 0.7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
-/* ===== Path 3 ===== */
-#path3 {
-  stroke-dasharray: var(--path3-length);
-  animation: path3 5s running linear;
+.loaded #loader-wrapper .loader-section.section-right {
+  -webkit-transform: translateX(100%);  /* Chrome, Opera 15+, Safari 3.1+ */
+      -ms-transform: translateX(100%);  /* IE 9 */
+          transform: translateX(100%);  /* Firefox 16+, IE 10+, Opera */
+
+  -webkit-transition: transform 0.7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
+          transition: transform 0.7s .3s cubic-bezier(0.645, 0.045, 0.355, 1.000);
 }
 
-@keyframes path3 {
-  0% {
-    stroke-dashoffset: var(--path3-length);
-    fill: var(--icon-fill);
-  }
+/* ---------- We end up moving the wrapper ---------- */
+.loaded #loader {
+        -webkit-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+                transform: translateY(-100%);
 
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
-}
-
-/* ===== Path 4 ===== */
-#path4 {
-  stroke-dasharray: var(--path4-length);
-  animation: path4 5s running linear;
-}
-
-@keyframes path4 {
-  0% {
-    stroke-dashoffset: var(--path4-length);
-    fill: var(--icon-fill);
-  }
-
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
-}
-
-/* ===== Path 5 ===== */
-#path5 {
-  stroke-dasharray: var(--path5-length);
-  animation: path5 5s running linear;
-}
-
-@keyframes path5 {
-  0% {
-    stroke-dashoffset: var(--path5-length);
-    fill: var(--icon-fill);
-  }
-
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
-}
-
-/* ===== Path 6 ===== */
-#path6 {
-  stroke-dasharray: var(--path6-length);
-  animation: path6 5s running linear;
-}
-
-@keyframes path6 {
-  0% {
-    stroke-dashoffset: var(--path6-length);
-    fill: var(--icon-fill);
-  }
-
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
-}
-
-/* ===== Path 7 ===== */
-#path7 {
-  stroke-dasharray: var(--path7-length);
-  animation: path7 5s running linear;
-}
-
-@keyframes path7 {
-  0% {
-    stroke-dashoffset: var(--path7-length);
-    fill: var(--icon-fill);
-  }
-
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
-}
-
-/* ===== Path 8 ===== */
-#path8 {
-  stroke-dasharray: var(--path8-length);
-  animation: path8 5s running linear;
-}
-
-@keyframes path8 {
-  0% {
-    stroke-dashoffset: var(--path8-length);
-    fill: var(--icon-fill);
-  }
-
-  95% {
-    stroke-dashoffset: 0;
-  }
-
-  96% {
-    fill: var(--icon-fill);
-  }
-
-  100% {
-    fill: var(--icon-color);
-  }
+        -webkit-transition: all 0.3s 1s ease-out;
+                transition: all 0.3s 1s ease-out;
 }
