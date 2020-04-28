@@ -1,75 +1,107 @@
 <!DOCTYPE html>
-<html style="height: 100%;">
+<html>
   <head>
     <title>Home</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="loader-animation.css">
-
-    <style>
-      .navbar {
-        z-index: 100;
-      }
-    </style>
+    <link rel="stylesheet" href="jquery.flipster.min.css">
+    <link rel="stylesheet" href="index.css">
   </head>
-  <body style="height: 100%; margin: 0;">
+  <body>
     <div id="loader-wrapper">
       <div id="loader">
-        <object data="logo.svg"></object>
+        <object data="logo-animation.svg"></object>
       </div>
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
     </div>
 
     <div id="content-wrapper">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top container-fluid">
+        <a id="logo" class="navbar-brand col-3" href="#">
+          <object data="logo.svg"></object>
+        </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
+        <div class="collapse navbar-collapse col-9 row" id="navbarSupportedContent">
+          <form class="form-inline col-9 row">
+            <input class="form-control col-9 mr-2 bg-input" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-brown col-2" type="submit">Search</button>
+          </form>
+
+          <ul class="navbar-nav my-2 my-lg-0 pr-0 col-3 justify-content-end">
             <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Dropdown
+              <a class="nav-link" href="#">
+                <i class="fas fa-cog"></i>
               </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
+              <a class="nav-link" href="#">
+                <i class="fas fa-sign-out-alt"></i>
+              </a>
             </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
       </nav>
+
+      <div id="coverflow" class="my-flipster">
+        <span class="ground"></span>
+        <ul>
+          <li>
+            <div style="height: 250px; width: 150px;">
+              <div style="height: 150px; width: 150px; background-color: red;"></div>
+              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
+            </div>
+          </li>
+          <li>
+            <div style="height: 250px; width: 150px;">
+              <div style="height: 150px; width: 150px; background-color: yellow;"></div>
+              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
+            </div>
+          </li>
+          <li>
+            <div style="height: 250px; width: 150px;">
+              <div style="height: 150px; width: 150px; background-color: green;"></div>
+              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
+            </div>
+          </li>
+          <li>
+            <div style="height: 250px; width: 150px;">
+              <div style="height: 150px; width: 150px; background-color: blue;"></div>
+              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
+            </div>
+          </li>
+          <li>
+            <div style="height: 250px; width: 150px;">
+              <div style="height: 150px; width: 150px; background-color: purple;"></div>
+              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
 
     <footer>
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+
+      <script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
+      <script src="jquery.flipster.min.js"></script>
       <script type="text/javascript">
         $(document).ready(function() {
-
           setTimeout(function(){
               $('body').addClass('loaded');
+              $('.my-flipster').flipster({
+                buttons: true,
+                spacing: 0.5,
+              });
           }, 5500);
-
         });
       </script>
     </footer>
