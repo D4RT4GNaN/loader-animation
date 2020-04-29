@@ -8,15 +8,18 @@
     <link rel="stylesheet" href="loader-animation.css">
     <link rel="stylesheet" href="jquery.flipster.min.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css" href="book.css" />
+
+    <!--<script src="modernizr.custom.js"></script>-->
   </head>
   <body>
-    <div id="loader-wrapper">
+    <!-- <div id="loader-wrapper">
       <div id="loader">
         <object data="logo-animation.svg"></object>
       </div>
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
-    </div>
+    </div> -->
 
     <div id="content-wrapper">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top container-fluid">
@@ -51,36 +54,91 @@
 
       <div id="coverflow" class="my-flipster">
         <span class="ground"></span>
-        <ul>
-          <li>
-            <div style="height: 250px; width: 150px;">
-              <div style="height: 150px; width: 150px; background-color: red;"></div>
-              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
-            </div>
+        <ul id="itemContainer">
+          <!-- Premier Livre -->
+          <li class="itemSelector">
+            <figure class='book'>
+
+							<!-- Front -->
+
+							<ul class='book_ul hardcover_front'>
+								<li>
+									<div class="coverDesign yellow">
+										<span class="ribbon">NEW</span>
+										<h1>CSS</h1>
+										<p>TRANSFORM</p>
+									</div>
+								</li>
+								<li></li>
+							</ul>
+
+							<!-- Pages -->
+
+							<ul class='book_ul page'>
+								<li></li>
+								<li>
+									<a class="btn" href="#">Download</a>
+								</li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+
+							<!-- Back -->
+
+							<ul class='book_ul hardcover_back'>
+								<li></li>
+								<li></li>
+							</ul>
+							<ul class='book_ul book_spine'>
+								<li></li>
+								<li></li>
+							</ul>
+						</figure>
+            <div class="coverflow-item-shadow"></div>
           </li>
-          <li>
-            <div style="height: 250px; width: 150px;">
-              <div style="height: 150px; width: 150px; background-color: yellow;"></div>
-              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
-            </div>
-          </li>
-          <li>
-            <div style="height: 250px; width: 150px;">
-              <div style="height: 150px; width: 150px; background-color: green;"></div>
-              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
-            </div>
-          </li>
-          <li>
-            <div style="height: 250px; width: 150px;">
-              <div style="height: 150px; width: 150px; background-color: blue;"></div>
-              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
-            </div>
-          </li>
-          <li>
-            <div style="height: 250px; width: 150px;">
-              <div style="height: 150px; width: 150px; background-color: purple;"></div>
-              <div class="coverflow-item-shadow" style="height: 100px; width: 150px;">
-            </div>
+
+          <!-- Deuxième Livre -->
+          <li class="itemSelector">
+            <figure class='book'>
+
+							<!-- Front -->
+
+							<ul class='book_ul hardcover_front'>
+								<li>
+									<div class="coverDesign yellow">
+										<span class="ribbon">SEXE</span>
+										<h1>CSS</h1>
+										<p>TRANSFORM</p>
+									</div>
+								</li>
+								<li></li>
+							</ul>
+
+							<!-- Pages -->
+
+							<ul class='book_ul page'>
+								<li></li>
+								<li>
+									<a class="btn" href="#">Download</a>
+								</li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+
+							<!-- Back -->
+
+							<ul class='book_ul hardcover_back'>
+								<li></li>
+								<li></li>
+							</ul>
+							<ul class='book_ul book_spine'>
+								<li></li>
+								<li></li>
+							</ul>
+						</figure>
+            <div class="coverflow-item-shadow"></div>
           </li>
         </ul>
       </div>
@@ -98,8 +156,11 @@
           setTimeout(function(){
               $('body').addClass('loaded');
               $('.my-flipster').flipster({
+                style: 'flat',
                 buttons: true,
-                spacing: 0.5,
+                spacing: 0.7,
+                itemContainer: '#itemContainer',
+                itemSelector: '.itemSelector',
               });
           }, 5500);
         });
